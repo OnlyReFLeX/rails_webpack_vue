@@ -68,3 +68,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Flexible authentication solution for Rails with Warden
 gem 'devise'
 gem 'devise_token_auth', '~> 0.2.0'
+
+# process manager
+gem 'foreman'
+

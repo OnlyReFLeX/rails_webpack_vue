@@ -7,16 +7,14 @@ export const auth = {
     login(context, creds, redirect) {
         http.post(routes.sign_in_path, creds)
             .then(response => {
-                if (response) {
-                    this.setAuthHeader(response);
-                    this.tokenValid(context, redirect);
-                }
+                this.setAuthHeader(response);
+                this.tokenValid(context, redirect);
                 if (redirect) {
                     util.redirect(context, redirect);
                 }
             })
             .catch(e => {
-                util.set_errors(e.response.data.errors);
+                util.set_alert(e.response.data.errors);
                 creds.password = '';
             });
     },
@@ -42,13 +40,11 @@ export const auth = {
     signup(context, creds, redirect) {
         http.post(routes.auth_path, creds)
             .then(response => {
-                if (response) {
-                    this.setAuthHeader(response);
-                    this.tokenValid(context, redirect);
-                }
+                this.setAuthHeader(response);
+                this.tokenValid(context, redirect);
             })
             .catch(e => {
-                util.set_errors(e.response.data.errors.full_messages);
+                util.set_alert(e.response.data.errors.full_messages);
                 creds.password = '';
                 creds.password_confirmation = '';
             });
@@ -89,12 +85,11 @@ export const auth = {
                 }
             })
             .then(response => {
-                if (redirect) {
-                    util.redirect(context, redirect);
-                }
+                util.set_alert(response.data.message);
+                util.redirect(context, '/');
             })
             .catch(e => {
-                util.set_errors(e.response.data.errors);
+                util.set_alert(e.response.data.errors);
                 creds.password = '';
             });
     },
@@ -103,10 +98,10 @@ export const auth = {
         http.post(routes.password_path, creds)
             .then(response => {
                 creds.email = '';
-                util.set_errors(response.data.message);
+                util.set_alert(response.data.message);
             })
             .catch(e => {
-                util.set_errors(e.response.data.errors);
+                util.set_alert(e.response.data.errors);
             });
     },
 
@@ -120,9 +115,10 @@ export const auth = {
             })
             .then(response => {
                 util.redirect(context, 'login');
+                util.set_alert(e.response.data.message);
             })
             .catch(e => {
-                util.set_errors(e.response.data.errors.full_messages);
+                util.set_alert(e.response.data.errors.full_messages);
             });
     },
 
@@ -137,9 +133,10 @@ export const auth = {
             })
             .then(response => {
                 util.redirect(context, '/');
+                util.set_alert("Данные успешно обновлены");
             })
             .catch(e => {
-                util.set_errors(e.response.data.errors.full_messages);
+                util.set_alert(e.response.data.errors.full_messages);
             });
     },
 

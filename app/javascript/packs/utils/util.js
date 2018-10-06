@@ -2,20 +2,20 @@ export const util = {
     redirect(context, redirect) {
         context.$router.push({ path: redirect });
     },
-    errors: {
+    alert: {
         message: ''
     },
-    set_errors(errors) {
-        if (Array.isArray(errors)) {
-            this.errors.message = errors.join("\n");
+    set_alert(alert) {
+        if (Array.isArray(alert)) {
+            this.alert.message = alert.join("\n");
         } else {
-             this.errors.message =errors;
+             this.alert.message =alert;
         }
         setTimeout(function(){
-          util.clear_errors()
+          util.clear_alert()
         }, 3000);
     },
-    clear_errors() {
-        this.errors.message = ''
+    clear_alert() {
+        this.alert.message = ''
     }
 }

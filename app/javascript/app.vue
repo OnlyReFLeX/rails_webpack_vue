@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <navigation></navigation>
-    <div>{{ errors.message }}</div>
+    <div>{{ alert.message }}</div>
     <router-view></router-view>
   </div>
 </template>
@@ -15,7 +15,7 @@
     },
     data() {
       return {
-        errors: util.errors
+        alert: util.alert
       }
     }
   }

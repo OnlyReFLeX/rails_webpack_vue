@@ -1,22 +1,22 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
+    <navigation></navigation>
+    <div>{{ errors.message }}</div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {
-  data: function () {
-    return {
-      message: "Hello Vue!"
+  import Navigation from './packs/components/Navigation.vue'
+  import { util } from './packs/utils/util.js'
+  export default {
+    components: {
+      navigation: Navigation
+    },
+    data() {
+      return {
+        errors: util.errors
+      }
     }
   }
-}
 </script>
-
-<style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
-</style>

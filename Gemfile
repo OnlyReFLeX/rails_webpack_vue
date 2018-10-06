@@ -71,4 +71,3 @@ gem 'devise_token_auth', '~> 0.2.0'
 
 # process manager
 gem 'foreman'
-

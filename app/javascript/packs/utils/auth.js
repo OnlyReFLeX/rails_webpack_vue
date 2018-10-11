@@ -62,9 +62,7 @@ export const auth = {
             .then(response => {
                 this.clearAuthHeader();
                 this.clearUserInformation(context);
-                if (redirect) {
-                    util.redirect(context, redirect);
-                }
+                location.replace(redirect);
             })
             .catch(e => {
                 this.clearAuthHeader();

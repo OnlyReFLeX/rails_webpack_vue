@@ -20,7 +20,7 @@ export const auth = {
   tokenValid(context) {
     http.get(routes.validate_token_path, this.authHeaders())
       .then(response => this.setUserInformation(response.data, context))
-      .catch(e => this.clearUserInformation(context))
+      .catch(() => this.clearUserInformation(context))
   },
 
   signup(context, creds, redirect) {
@@ -38,12 +38,12 @@ export const auth = {
 
   logout(context, redirect) {
     http.delete(routes.auth_sign_out_path, this.authHeaders())
-      .then(response => {
+      .then(() => {
         this.clearAuthHeader()
         this.clearUserInformation(context)
         location.replace(redirect)
       })
-      .catch(e => {
+      .catch(() => {
         this.clearAuthHeader()
         this.clearUserInformation(context)
         if (redirect) util.redirect(context, redirect)

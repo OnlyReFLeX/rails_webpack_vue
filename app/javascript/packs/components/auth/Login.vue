@@ -17,10 +17,8 @@
 
   export default {
     beforeCreate() {
-      auth.tokenValid(this);
-      if (store.getters.userAuthenticated) {
-        util.redirect(this, '/')
-      }
+      auth.tokenValid(this)
+      if (store.getters.userAuthenticated) util.redirect(this, '/')
     },
     data() {
       return {
@@ -29,7 +27,7 @@
     },
     methods: {
       login() {
-        auth.login(this, this.user, '/');
+        auth.login(this, this.user, '/')
       }
     }
   }

@@ -8,7 +8,6 @@ import router from './router'
 
 Vue.router = router
 
-
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
     el: '#app',

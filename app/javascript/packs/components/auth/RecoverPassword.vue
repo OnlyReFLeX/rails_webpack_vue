@@ -16,9 +16,7 @@
   export default {
     beforeCreate() {
       auth.tokenValid(this);
-      if (store.getters.userAuthenticated) {
-        util.redirect(this, '/')
-      }
+      if (store.getters.userAuthenticated) util.redirect(this, '/')
     },
     data() {
       return {

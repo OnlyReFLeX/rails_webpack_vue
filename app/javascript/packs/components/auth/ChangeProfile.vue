@@ -16,10 +16,8 @@
 
   export default {
     beforeCreate() {
-      auth.tokenValid(this);
-      if (!store.getters.userAuthenticated) {
-        util.redirect(this, '/')
-      }
+      auth.tokenValid(this)
+      if (!store.getters.userAuthenticated) util.redirect(this, '/')
     },
     data(){
       return {
@@ -31,7 +29,7 @@
     },
     methods: {
       change() {
-        auth.changeProfile(this, this.user, '/');
+        auth.changeProfile(this, this.user, '/')
       }
     },
   }

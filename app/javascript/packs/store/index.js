@@ -8,10 +8,9 @@ import users from './users'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-    modules: {
-        users
-    }
+  modules: {
+    users
+  }
 })
-
 
 export default store

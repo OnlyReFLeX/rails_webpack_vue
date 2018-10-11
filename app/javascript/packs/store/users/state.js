@@ -1,8 +1,7 @@
 const state = {
-    nickname: '',
-    email: '',
-    authenticated: ''
+  nickname: '',
+  email: '',
+  authenticated: ''
 }
-
 
 export default state

@@ -1,14 +1,7 @@
 const getters = {
-    nickName: (state) => {
-        return state.nickname;
-    },
-    userEmail: (state) => {
-        return state.email;
-    },
-    userAuthenticated: (state) =>{
-        return state.authenticated;
-    }
+  nickName: (state) => state.nickname,
+  userEmail: (state) => state.email,
+  userAuthenticated: (state) => state.authenticated
 }
-
 
 export default getters
